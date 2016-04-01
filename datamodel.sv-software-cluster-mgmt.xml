@@ -172,6 +172,79 @@
 				</list>
 			</presentation>
 		</class>
+		<class id="SoftwareInstance" _delta="must_exist">
+			<fields>
+				<field id="softwarecluster_list" xsi:type="AttributeLinkedSetIndirect" _delta="define">
+					<linked_class>lnkSoftwareInstanceToSoftwareCluster</linked_class>
+					<ext_key_to_me>instance_id</ext_key_to_me>
+					<ext_key_to_remote>cluster_id</ext_key_to_remote>
+				</field>
+			</fields>
+			<presentation>
+				<details>
+					<items>
+						<item id="softwarecluster_list" _delta="define">
+							<rank>140</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
+		<class id="Middleware" _delta="must_exist">
+			<presentation>
+				<details>
+					<items>
+						<item id="softwarecluster_list" _delta="define">
+							<rank>140</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
+		<class id="DBServer" _delta="must_exist">
+			<presentation>
+				<details>
+					<items>
+						<item id="softwarecluster_list" _delta="define">
+							<rank>140</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
+		<class id="WebServer" _delta="must_exist">
+			<presentation>
+				<details>
+					<items>
+						<item id="softwarecluster_list" _delta="define">
+							<rank>140</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
+		<class id="PCSoftware" _delta="must_exist">
+			<presentation>
+				<details>
+					<items>
+						<item id="softwarecluster_list" _delta="define">
+							<rank>140</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
+		<class id="OtherSoftware" _delta="must_exist">
+			<presentation>
+				<details>
+					<items>
+						<item id="softwarecluster_list" _delta="define">
+							<rank>140</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
+		</class>
 	</classes>
 	<menus>
 	</menus>
@@ -181,6 +254,8 @@
 				<entry id="Class:SoftwareCluster" _delta="define">Software Cluster</entry>
 				<entry id="Class:SoftwareCluster/Attribute:softwareinstance_list" _delta="define">Software Instances</entry>
 				<entry id="Class:SoftwareCluster/Attribute:softwareinstance_list+" _delta="define">List of software instances included in this cluster.</entry>
+				<entry id="Class:SoftwareInstance/Attribute:softwarecluster_list" _delta="define">Software Clusters</entry>
+				<entry id="Class:SoftwareInstance/Attribute:softwarecluster_list+" _delta="define">List of software clusters this software instance is part of.</entry>
 				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster" _delta="define">Link Software Instance / Software Cluster</entry>
 				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:cluster_id" _delta="define">Cluster</entry>
 				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:cluster_id+" _delta="define"/>

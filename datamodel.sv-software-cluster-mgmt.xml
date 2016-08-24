@@ -4,7 +4,7 @@
 		<class id="SoftwareCluster" _delta="define">
 			<parent>FunctionalCI</parent>
 			<properties>
-				<category>bizmodel</category>
+				<category>bizmodel,searchable</category>
 				<abstract>false</abstract>
 				<key_type>autoincrement</key_type>
 				<db_table>softwarecluster</db_table>

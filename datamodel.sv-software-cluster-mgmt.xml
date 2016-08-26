@@ -104,6 +104,43 @@
 				</details>
 			</presentation>
 		</class>
+		<class id="DBCluster" _delta="define">
+			<parent>SoftwareCluster</parent>
+			<properties>
+				<category>bizmodel,searchable</category>
+				<abstract>false</abstract>
+				<key_type>autoincrement</key_type>
+				<db_table>dbcluster</db_table>
+				<db_key_field>id</db_key_field>
+				<naming>
+					<attributes>
+						<attribute id="name"/>
+					</attributes>
+				</naming>
+				<icon>images/cluster-db.png</icon>
+				<reconsiliation>
+					<attributes>
+						<attribute id="org_id"/>
+						<attribute id="name"/>
+					</attributes>
+				</reconsiliation>
+			</properties>
+			<fields/>
+			<methods>
+				<method id="GetSoftwareInstanceClass" _delta="define">
+					<comment><![CDATA[/**
+	 * Get the type of linked software instances
+	 * 
+	 * @return string
+	 */]]></comment>
+					<static>true</static>
+					<access>public</access>
+					<type>Custom</type>
+					<code><![CDATA[	public static function GetSoftwareInstanceClass(){ return 'DBServer'; }]]></code>
+				</method>
+			</methods>
+			<presentation/>
+		</class>
 		<class id="lnkSoftwareInstanceToSoftwareCluster" _delta="define">
 			<parent>cmdbAbstractObject</parent>
 			<properties>
@@ -319,6 +356,9 @@
 	<dictionaries>
 		<dictionary id="EN US">
 			<entries>
+				<entry id="Class:DBCluster" _delta="define">Database Cluster</entry>
+				<entry id="Class:DBCluster/Attribute:softwareinstance_list" _delta="define">DB Servers</entry>
+				<entry id="Class:DBCluster/Attribute:softwareinstance_list+" _delta="define">List of database servers included in this cluster.</entry>
 				<entry id="Class:SoftwareCluster" _delta="define">Software Cluster</entry>
 				<entry id="Class:SoftwareCluster/Attribute:softwareinstance_list" _delta="define">Software Instances</entry>
 				<entry id="Class:SoftwareCluster/Attribute:softwareinstance_list+" _delta="define">List of software instances included in this cluster.</entry>

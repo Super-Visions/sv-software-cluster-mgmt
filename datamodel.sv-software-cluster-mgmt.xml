@@ -125,7 +125,14 @@
 					</attributes>
 				</reconsiliation>
 			</properties>
-			<fields/>
+			<fields>
+				<field id="dbschema_list" xsi:type="AttributeLinkedSet">
+					<linked_class>DatabaseSchema</linked_class>
+					<ext_key_to_me>dbserver_id</ext_key_to_me>
+					<edit_mode>in_place</edit_mode>
+					<tracking_level>all</tracking_level>
+				</field>
+			</fields>
 			<methods>
 				<method id="GetSoftwareInstanceClass" _delta="define">
 					<comment><![CDATA[/**
@@ -139,7 +146,48 @@
 					<code><![CDATA[	public static function GetSoftwareInstanceClass(){ return 'DBServer'; }]]></code>
 				</method>
 			</methods>
-			<presentation/>
+			<presentation>
+				<details>
+					<items>
+						<item id="name">
+							<rank>10</rank>
+						</item>
+						<item id="org_id">
+							<rank>20</rank>
+						</item>
+						<item id="business_criticity">
+							<rank>30</rank>
+						</item>
+						<item id="move2production">
+							<rank>40</rank>
+						</item>
+						<item id="description">
+							<rank>50</rank>
+						</item>
+						<item id="contacts_list">
+							<rank>60</rank>
+						</item>
+						<item id="documents_list">
+							<rank>70</rank>
+						</item>
+						<item id="applicationsolution_list">
+							<rank>90</rank>
+						</item>
+						<item id="softwareinstance_list">
+							<rank>100</rank>
+						</item>
+						<item id="dbschema_list">
+							<rank>110</rank>
+						</item>
+						<item id="providercontracts_list">
+							<rank>120</rank>
+						</item>
+						<item id="services_list">
+							<rank>130</rank>
+						</item>
+					</items>
+				</details>
+			</presentation>
 		</class>
 		<class id="lnkSoftwareInstanceToSoftwareCluster" _delta="define">
 			<parent>cmdbAbstractObject</parent>
@@ -292,6 +340,17 @@
 				</details>
 			</presentation>
 		</class>
+		<class id="DatabaseSchema" _delta="must_exist">
+			<fields>
+				<field id="dbserver_id" xsi:type="AttributeExternalKey" _delta="redefine">
+					<filter><![CDATA[SELECT DBServer UNION SELECT DBCluster]]></filter>
+					<sql>dbserver_id</sql>
+					<target_class>FunctionalCI</target_class>
+					<is_null_allowed>false</is_null_allowed>
+					<on_target_delete>DEL_MANUAL</on_target_delete>
+				</field>
+			</fields>
+		</class>
 	</classes>
 	<menus>
 		<menu id="ConfigManagementOverview" xsi:type="DashboardMenuNode" _delta="must_exist">
@@ -313,6 +372,8 @@
 		<dictionary id="EN US">
 			<entries>
 				<entry id="Class:DBCluster" _delta="define">Database Cluster</entry>
+				<entry id="Class:DBCluster/Attribute:dbschema_list" _delta="define">DB Schemas</entry>
+				<entry id="Class:DBCluster/Attribute:dbschema_list+" _delta="define">All the database schemas for this cluster.</entry>
 				<entry id="Class:DBCluster/Attribute:softwareinstance_list" _delta="define">DB Servers</entry>
 				<entry id="Class:DBCluster/Attribute:softwareinstance_list+" _delta="define">List of database servers included in this cluster.</entry>
 				<entry id="Class:SoftwareCluster" _delta="define">Software Cluster</entry>

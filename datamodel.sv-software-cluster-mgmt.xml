@@ -5,7 +5,7 @@
 			<parent>FunctionalCI</parent>
 			<properties>
 				<category>bizmodel,searchable</category>
-				<abstract>false</abstract>
+				<abstract>true</abstract>
 				<key_type>autoincrement</key_type>
 				<db_table>softwarecluster</db_table>
 				<db_key_field>id</db_key_field>
@@ -29,7 +29,41 @@
 					<ext_key_to_remote>instance_id</ext_key_to_remote>
 				</field>
 			</fields>
-			<methods/>
+			<methods>
+				<method id="DoCheckToWrite">
+					<static>false</static>
+					<access>public</access>
+					<type>Overload-cmdbAbstractObject</type>
+					<code><![CDATA[	public function DoCheckToWrite()
+	{
+		parent::DoCheckToWrite();
+		
+		$aChanges = $this->ListChanges();
+		if (isset($aChanges['softwareinstance_list']))
+		{
+			while ($oLink = $aChanges['softwareinstance_list']->Fetch())
+			{
+				if ($oLink->IsModified())
+				{
+					list($bRes, $aIssues) = $oLink->CheckToWrite();
+					if (!$bRes) $this->m_aCheckIssues += $aIssues;
+				}
+			}
+		}
+	}]]></code>
+				</method>
+				<method id="GetSoftwareInstanceClass" _delta="define">
+					<comment><![CDATA[/**
+	 * Get the type of linked software instances
+	 * 
+	 * @return string
+	 */]]></comment>
+					<static>true</static>
+					<access>public</access>
+					<type>Custom</type>
+					<code><![CDATA[	public static function GetSoftwareInstanceClass(){ return 'SoftwareInstance'; }]]></code>
+				</method>
+			</methods>
 			<presentation>
 				<details>
 					<items>
@@ -126,7 +160,27 @@
 					<is_null_allowed>true</is_null_allowed>
 				</field>
 			</fields>
-			<methods/>
+			<methods>
+				<method id="DoCheckToWrite">
+					<static>false</static>
+					<access>public</access>
+					<type>Overload-cmdbAbstractObject</type>
+					<code><![CDATA[	public function DoCheckToWrite()
+	{
+		parent::DoCheckToWrite();
+		
+		// Get allowed SoftwareInstance types
+		$sSoftwareClusterClass = $this->Get('cluster_id_finalclass_recall');
+		$sAllowedSoftwareInstanceClass = forward_static_call(array($sSoftwareClusterClass, 'GetSoftwareInstanceClass'));
+		
+		// Compare SoftwareInstance types
+		if (!is_a($this->Get('instance_id_finalclass_recall'), $sAllowedSoftwareInstanceClass, true))
+		{
+			$this->m_aCheckIssues[] = Dict::Format('UI:SoftwareCluster:Validate:LinkSoftwareInstance', MetaModel::GetName($sSoftwareClusterClass), MetaModel::GetName($sAllowedSoftwareInstanceClass));
+		}
+	}]]></code>
+				</method>
+			</methods>
 			<presentation>
 				<details>
 					<items>
@@ -247,6 +301,20 @@
 		</class>
 	</classes>
 	<menus>
+		<menu id="ConfigManagementOverview" xsi:type="DashboardMenuNode" _delta="must_exist">
+			<definition>
+				<cells>
+					<cell id="3">
+						<dashlets>
+							<dashlet id="SoftwareCluster" xsi:type="DashletBadge" _delta="define">
+								<rank>11</rank>
+								<class>SoftwareCluster</class>
+							</dashlet>
+						</dashlets>
+					</cell>
+				</cells>
+			</definition>
+		</menu>
 	</menus>
 	<dictionaries>
 		<dictionary id="EN US">
@@ -263,6 +331,7 @@
 				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:instance_id+" _delta="define"/>
 				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:role" _delta="define">Role</entry>
 				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:role+" _delta="define"/>
+				<entry id="UI:SoftwareCluster:Validate:LinkSoftwareInstance" _delta="define">%1$s objects only allow objects of type %2$s to be linked as instance.</entry>
 			</entries>
 		</dictionary>
 	</dictionaries>

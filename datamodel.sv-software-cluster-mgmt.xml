@@ -281,51 +281,7 @@
 				</details>
 			</presentation>
 		</class>
-		<class id="Middleware" _delta="must_exist">
-			<presentation>
-				<details>
-					<items>
-						<item id="softwarecluster_list" _delta="define">
-							<rank>140</rank>
-						</item>
-					</items>
-				</details>
-			</presentation>
-		</class>
 		<class id="DBServer" _delta="must_exist">
-			<presentation>
-				<details>
-					<items>
-						<item id="softwarecluster_list" _delta="define">
-							<rank>140</rank>
-						</item>
-					</items>
-				</details>
-			</presentation>
-		</class>
-		<class id="WebServer" _delta="must_exist">
-			<presentation>
-				<details>
-					<items>
-						<item id="softwarecluster_list" _delta="define">
-							<rank>140</rank>
-						</item>
-					</items>
-				</details>
-			</presentation>
-		</class>
-		<class id="PCSoftware" _delta="must_exist">
-			<presentation>
-				<details>
-					<items>
-						<item id="softwarecluster_list" _delta="define">
-							<rank>140</rank>
-						</item>
-					</items>
-				</details>
-			</presentation>
-		</class>
-		<class id="OtherSoftware" _delta="must_exist">
 			<presentation>
 				<details>
 					<items>

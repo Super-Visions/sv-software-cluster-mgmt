@@ -41,12 +41,13 @@
 		$aChanges = $this->ListChanges();
 		if (isset($aChanges['softwareinstance_list']))
 		{
+			$sAllowedSoftwareInstanceClass = static::GetSoftwareInstanceClass();
 			while ($oLink = $aChanges['softwareinstance_list']->Fetch())
 			{
-				if ($oLink->IsModified())
+				// Compare SoftwareInstance types
+				if ($oLink->IsModified() && !is_a($oLink->Get('instance_id_finalclass_recall'), $sAllowedSoftwareInstanceClass, true))
 				{
-					list($bRes, $aIssues) = $oLink->CheckToWrite();
-					if (!$bRes) $this->m_aCheckIssues += $aIssues;
+					$this->m_aCheckIssues[] = Dict::Format('UI:SoftwareCluster:Validate:LinkSoftwareInstance', MetaModel::GetName(get_class($this)), MetaModel::GetName($sAllowedSoftwareInstanceClass));
 				}
 			}
 		}

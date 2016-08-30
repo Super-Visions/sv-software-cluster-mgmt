@@ -9,7 +9,7 @@
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'sv-software-cluster-mgmt/1.2.0',
+	'sv-software-cluster-mgmt/1.2.1',
 	array(
 		// Identification
 		//

@@ -133,6 +133,17 @@
 					<edit_mode>in_place</edit_mode>
 					<tracking_level>all</tracking_level>
 				</field>
+				<field id="redundancy" xsi:type="AttributeRedundancySettings">
+					<sql>redundancy</sql>
+					<relation_code>impacts</relation_code>
+					<from_class>SoftwareInstance</from_class>
+					<neighbour_id>softwarecluster</neighbour_id>
+					<enabled>true</enabled>
+					<enabled_mode>user</enabled_mode>
+					<min_up>1</min_up>
+					<min_up_type>count</min_up_type>
+					<min_up_mode>user</min_up_mode>
+				</field>
 			</fields>
 			<methods>
 				<method id="GetSoftwareInstanceClass" _delta="define">
@@ -393,6 +404,10 @@
 				<entry id="Class:DBCluster" _delta="define">Database Cluster</entry>
 				<entry id="Class:DBCluster/Attribute:dbschema_list" _delta="define">DB Schemas</entry>
 				<entry id="Class:DBCluster/Attribute:dbschema_list+" _delta="define">All the database schemas for this cluster.</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy" _delta="define">Redundancy</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy/disabled" _delta="define">The cluster is up if all DB servers are up.</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy/count" _delta="define">The cluster is up if at least %1$s DB servers are up.</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy/percent" _delta="define">The cluster is up if at least %1$s %% of the DB servers are up.</entry>
 				<entry id="Class:DBCluster/Attribute:softwareinstance_list" _delta="define">DB Servers</entry>
 				<entry id="Class:DBCluster/Attribute:softwareinstance_list+" _delta="define">List of database servers included in this cluster.</entry>
 				<entry id="Class:SoftwareCluster" _delta="define">Software Cluster</entry>

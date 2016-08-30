@@ -147,6 +147,15 @@
 					<code><![CDATA[	public static function GetSoftwareInstanceClass(){ return 'DBServer'; }]]></code>
 				</method>
 			</methods>
+			<relations>
+				<relation id="impacts">
+					<neighbours>
+						<neighbour id="dbschema">
+							<attribute>dbschema_list</attribute>
+						</neighbour>
+					</neighbours>
+				</relation>
+			</relations>
 			<presentation>
 				<details>
 					<items>
@@ -320,6 +329,15 @@
 					<ext_key_to_remote>cluster_id</ext_key_to_remote>
 				</field>
 			</fields>
+			<relations>
+				<relation id="impacts">
+					<neighbours>
+						<neighbour id="softwarecluster" _delta="define">
+							<attribute>softwarecluster_list</attribute>
+						</neighbour>
+					</neighbours>
+				</relation>
+			</relations>
 			<presentation>
 				<details>
 					<items>

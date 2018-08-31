@@ -371,6 +371,9 @@
 			</presentation>
 		</class>
 		<class id="DatabaseSchema" _delta="must_exist">
+			<properties>
+				<obsolescence _delta="delete"/>
+			</properties>
 			<fields>
 				<field id="dbserver_id" xsi:type="AttributeExternalKey" _delta="redefine">
 					<filter><![CDATA[SELECT DBServer UNION SELECT DBCluster]]></filter>

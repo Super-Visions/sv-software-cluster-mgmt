@@ -3,13 +3,13 @@
  * iTop module definition file
  * 
  * @author Thomas Casteleyn <thomas.casteleyn@super-visions.com>
- * @copyright (C) 2016 Super-Visions BVBA
+ * @copyright (C) 2016-2018 Super-Visions BVBA
  * @license http://opensource.org/licenses/AGPL-3.0
  */
 
 SetupWebPage::AddModule(
 	__FILE__, // Path to the current file, all other file names are relative to the directory containing this file
-	'sv-software-cluster-mgmt/1.2.1',
+	'sv-software-cluster-mgmt/1.3.0',
 	array(
 		// Identification
 		//
@@ -19,7 +19,7 @@ SetupWebPage::AddModule(
 		// Setup
 		//
 		'dependencies' => array(
-			'itop-config-mgmt/2.2.0',
+			'itop-config-mgmt/2.4.0',
 		),
 		'mandatory' => false,
 		'visible' => true,

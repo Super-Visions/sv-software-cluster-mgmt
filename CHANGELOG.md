@@ -15,3 +15,6 @@ Added impact relations
 
 ## 1.3.0 - 2018-08-31
 Made module compatible with iTop 2.4+
+
+## 1.3.1 - 2018-12-14
+Fix: Some software instance types have different impact relations.

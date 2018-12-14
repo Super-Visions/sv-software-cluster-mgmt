@@ -340,15 +340,6 @@
 					<ext_key_to_remote>cluster_id</ext_key_to_remote>
 				</field>
 			</fields>
-			<relations>
-				<relation id="impacts">
-					<neighbours>
-						<neighbour id="softwarecluster" _delta="define">
-							<attribute>softwarecluster_list</attribute>
-						</neighbour>
-					</neighbours>
-				</relation>
-			</relations>
 			<presentation>
 				<details>
 					<items>
@@ -360,6 +351,15 @@
 			</presentation>
 		</class>
 		<class id="DBServer" _delta="must_exist">
+			<relations>
+				<relation id="impacts">
+					<neighbours>
+						<neighbour id="dbcluster" _delta="define">
+							<attribute>softwarecluster_list</attribute>
+						</neighbour>
+					</neighbours>
+				</relation>
+			</relations>
 			<presentation>
 				<details>
 					<items>

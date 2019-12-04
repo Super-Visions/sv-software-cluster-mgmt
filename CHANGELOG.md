@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## Unreleased
+### Added
+- AGPL license file
+
 ## 1.3.1 - 2018-12-14
 Fix: Some software instance types have different impact relations.
 

@@ -428,5 +428,31 @@
 				<entry id="UI:SoftwareCluster:Validate:LinkSoftwareInstance" _delta="define">%1$s objects only allow objects of type %2$s to be linked as instance.</entry>
 			</entries>
 		</dictionary>
+		<dictionary id="PT BR">
+			<entries>
+				<entry id="Class:DBCluster" _delta="define">Cluster de banco de dados</entry>
+				<entry id="Class:DBCluster/Attribute:dbschema_list" _delta="define">Esquemas da base de dados</entry>
+				<entry id="Class:DBCluster/Attribute:dbschema_list+" _delta="define">Todos os esquemas de base de dados para este clueste.</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy" _delta="define">Redundância</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy/disabled" _delta="define">O cluster está ativo se todos os servidores de BD estiverem ativos.</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy/count" _delta="define">O cluster está ativo se pelo menos %1$s servidor de BD estiver ativo.</entry>
+				<entry id="Class:DBCluster/Attribute:redundancy/percent" _delta="define">O cluster está ativo se pelo menos %1$s %% dos servidores de BD estiverem ativos.</entry>
+				<entry id="Class:DBCluster/Attribute:softwareinstance_list" _delta="define">Servidores de BD</entry>
+				<entry id="Class:DBCluster/Attribute:softwareinstance_list+" _delta="define">Lista dos servidores de base de dados inclusos neste cluster.</entry>
+				<entry id="Class:SoftwareCluster" _delta="define">Cluster de software</entry>
+				<entry id="Class:SoftwareCluster/Attribute:softwareinstance_list" _delta="define">Instâncias de software</entry>
+				<entry id="Class:SoftwareCluster/Attribute:softwareinstance_list+" _delta="define">Lista de instância de software inclusas neste cluster.</entry>
+				<entry id="Class:SoftwareInstance/Attribute:softwarecluster_list" _delta="define">Clusters de software</entry>
+				<entry id="Class:SoftwareInstance/Attribute:softwarecluster_list+" _delta="define">Lista dos clusters de software que esta instância faz parte.</entry>
+				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster" _delta="define">Vincular instância / cluster de software</entry>
+				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:cluster_id" _delta="define">Cluster</entry>
+				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:cluster_id+" _delta="define"/>
+				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:instance_id" _delta="define">Instância de software</entry>
+				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:instance_id+" _delta="define"/>
+				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:role" _delta="define">Papel</entry>
+				<entry id="Class:lnkSoftwareInstanceToSoftwareCluster/Attribute:role+" _delta="define"/>
+				<entry id="UI:SoftwareCluster:Validate:LinkSoftwareInstance" _delta="define">Objetos %1$s apenas permitem vínculo com com objetos do tipo %2$s como instância.</entry>
+			</entries>
+		</dictionary>
 	</dictionaries>
 </itop_design>

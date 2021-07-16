@@ -1,9 +1,10 @@
 Changelog
 =========
 
-## Unreleased
+## 1.4.0 - 2021-07-16
 ### Added
 - AGPL license file
+- Portuguese translation, thanks to [@rokam](https://www.transifex.com/user/profile/rokam/).
 
 ## 1.3.1 - 2018-12-14
 ### Fixed

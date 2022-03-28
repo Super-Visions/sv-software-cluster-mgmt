@@ -1,6 +1,10 @@
 Changelog
 =========
 
+## 1.4.1 - 2022-03-28
+### Fixed
+- Typo in reconciliation definitions
+
 ## 1.4.0 - 2021-07-16
 ### Added
 - AGPL license file

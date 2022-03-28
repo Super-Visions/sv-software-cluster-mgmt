@@ -15,12 +15,12 @@
 					</attributes>
 				</naming>
 				<icon>images/cluster.png</icon>
-				<reconsiliation>
+				<reconciliation>
 					<attributes>
 						<attribute id="org_id"/>
 						<attribute id="name"/>
 					</attributes>
-				</reconsiliation>
+				</reconciliation>
 			</properties>
 			<fields>
 				<field id="softwareinstance_list" xsi:type="AttributeLinkedSetIndirect">
@@ -119,12 +119,12 @@
 					</attributes>
 				</naming>
 				<icon>images/cluster-db.png</icon>
-				<reconsiliation>
+				<reconciliation>
 					<attributes>
 						<attribute id="org_id"/>
 						<attribute id="name"/>
 					</attributes>
-				</reconsiliation>
+				</reconciliation>
 			</properties>
 			<fields>
 				<field id="dbschema_list" xsi:type="AttributeLinkedSet">
